@@ -13,7 +13,7 @@ void DFS (int v, vector <vector<int>>& g, vector <bool>& visitado ){
 
 int main (){
     int n,m,a,b;
-    int cont = -1;
+    int cont = 0;
 
     cin >> n >> m;
     vector <vector<int>> g (n+1);
@@ -32,16 +32,14 @@ int main (){
         if (! visitado[i]){
             if (i!=1){
                 cont++;
-                r.push_back(i-1);
-                r.push_back(i);
             }
+            r.push_back(i);
             DFS(i, g, visitado);
         }
     }
 
     cout << cont << "\n";
-    for( int i = 0; i< r.size()/2; i+=2){
-        cout << r[i] << " " << r[i+1];
+    for( int i = 0; i< r.size()-1; i++){
+        cout << r[i] << " " << r[i+1] << "\n";
     }
-
 }
